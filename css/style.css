@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --primary-color: #788D2C;
+    --dark-color: #2E3220;
+    --light-color: #C0CE78;
+    --white-color: #fafafa;
+    --black-color: #151515;
+  
+    --title-font: 'Open Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--title-font);
+    color: var(--black-color);
+    text-align: center;
+}
+
+body {
+    background-color: var(--white-color);
+    font-size: 16px;
+}
+
+main { padding-bottom: 5rem; }
+
+a {
+    text-decoration: underline solid var(--white-color) 0.01em;
+    color: var(--white-color);
+}
+
+a:hover {
+    color: var(--dark-color);
+}
+
+textarea, input, button {
+    font-family: var(--title-font);
+    color: var(--black-color);
+}
+
+
+
+/***********           HEADER           **************/
+
+header { 
+    color: var(--white-color); 
+    border-bottom: 0.01em solid var(--light-color);
+}
+
+li { 
+    color: var(--white-color);
+    list-style-type: none; 
+    display: inline-block;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+}
+
+
+/***********           TITLE SECTION          **************/
+
+.title_section { 
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--light-color) 100%);
+    padding: 5em;
+}
+
+.title_section img {
+    height: 15em;
+}
+
+.title_section div {
+    height: 15em;
+}
+
+.title_section p { color: var(--white-color); }
+
+
+
+/***********           TEAM SECTION           **************/
+
+.team_section {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding: 5em;
+}
+
+.team_section .card { 
+    color: var(--light-color);
+    margin: 1em; 
+    
+}
+
+.team_section .card img {
+    border: 0.25em solid var(--light-color);
+    width: 10em;
+    height: 10em;
+    border-radius: 2em;
+}
+
+
+/***********           TIPS SECTION          **************/
+
+.tips_section {
+    padding: 5em;
+    background-color: var(--light-color);
+}
+
+.tips_section .card {
+    height: 10em;
+}
+
+.tips_section a { 
+    color: var(--white-color);
+    font-weight: bold;
+}
+
+
+/***********           STORE SECTION          **************/
+.store_section {
+    padding: 5em;
+}
+
+.store_section .card {
+    height: 15em;
+}
+
+.store_section .card img {
+    height: 10em;
+}
