@@ -20,7 +20,7 @@ async function generateResponse(inputText) {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          // 'Authorization': 'Bearer YOUR_API_KEY' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
+          'Authorization': 'Bearer YOUR_API_KEY' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
       },
       body: JSON.stringify({
           inputs: inputText
