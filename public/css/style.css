@@ -160,7 +160,7 @@ nav {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
-.team, .chat {
+.team, .chat-section {
     background-color: #dbe89b;
     text-align: justify;
 }
@@ -184,7 +184,7 @@ nav {
 }
 
 .card img {
-    border: 0.5em solid rgb(134, 153, 60);
+    border: 0.5em solid #86993c;
     width: 8em;
     height: 8em;
     border-radius: 2em;
@@ -217,13 +217,33 @@ nav {
 
 .chat {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
-    margin-right: 10em;
 }
 
+.chat-log {
+    align-self: center;
+    width: 50vw;
+    font-weight: normal;
+    max-height: 65vh;
+    overflow: hidden auto;
+}
+
+.chat-log .sent {
+    background-color: #86993c;
+    text-align: right;
+    color: #fafafa;
+    padding: 0.5em;
+}
+
+.chat-log .received {
+    background-color: #ffffff;
+    text-align: left;
+    color: #493d3f;
+    padding: 0.5em;
+}
 
 .chat-input {
     outline: none;
@@ -233,6 +253,7 @@ nav {
     padding: 1em;
     resize: none; 
     border-color: #dbe89b;
+    width: 50vw;
 }
 
 .chat-input:focus {

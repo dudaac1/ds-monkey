@@ -1,8 +1,18 @@
-async function sendMessage() {
-  const userInput = document.getElementById('userInput').value;
+const userInput = document.getElementById('userInput');
+const chatLog = document.getElementById('chatLog');
 
-  const response = await generateResponse(userInput);
-  displayResponse(response);
+async function sendMessage() {
+  userInputValue = userInput.value;
+  // console.log(userInputValue);
+  userInput.value = '';
+
+  var p = document.createElement('p');
+  p.innerHTML = "<b>YOU:</b><br>" + userInputValue;
+  p.classList = 'sent';
+  chatLog.appendChild(p);
+
+  const response = await generateResponse(userInputValue);
+  displayResponse(await response);
 }
 
 async function generateResponse(inputText) {
@@ -10,7 +20,7 @@ async function generateResponse(inputText) {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
+          // 'Authorization': 'Bearer YOUR_API_KEY' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
       },
       body: JSON.stringify({
           inputs: inputText
@@ -18,12 +28,12 @@ async function generateResponse(inputText) {
   });
 
   const responseData = await response.json();
-  return responseData.generated_text;
+  return responseData[0].generated_text;
 }
 
 function displayResponse(response) {
-  const chatLog = document.getElementById('chatLog');
-  const responseElement = document.createElement('p');
-  responseElement.textContent = response;
-  chatLog.appendChild(responseElement);
+  var p = document.createElement('p');
+  p.innerHTML = "<b>LUNA:</b><br>" + response;
+  p.classList = 'received';
+  chatLog.appendChild(p);
 }
