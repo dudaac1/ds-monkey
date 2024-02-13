@@ -21,15 +21,23 @@
         </nav>
     </header>
     <main>
-        <section class="container chat-section flex-column">
-            <div id="chatLog" class="chat-log"></div>
-            <div class="chat m-1">
-                <textarea id="userInput" class="half-width chat-input m-1" placeholder="Digite sua mensagem..."></textarea>
-                <button class="btn-zero" onclick="sendMessage()">Enviar</button>
+
+        <section class="container chat-section flex-column justify-end align-center">
+            <div class="container-chat  mb-6">
+                <div class="flex flex-column">
+                    <div class="log-container">
+                        <div id="chatLog" class="chat-log message"></div>
+                    </div>
+                    <span class="loader"></span>
+                    <div class="chat">
+                        <textarea id="userInput" class="half-width chat-input mr-1" placeholder="Digite sua mensagem..."></textarea>
+                        <button class="btn-zero" onclick="sendMessage()">Enviar</button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <img width="300" height="500" style="position: absolute; top: 0; left: -2.5em" src="./images/macaco.png">
+        <img width="300" height="500" class="luna swing-animation" src="./images/macaco.png">
     </main>
 </body>
 <script type="text/javascript" src="./js/script.js"></script>

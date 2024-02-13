@@ -16,19 +16,29 @@ async function sendMessage() {
 }
 
 async function generateResponse(inputText) {
-  const response = await fetch('https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
-      },
-      body: JSON.stringify({
-          inputs: inputText
-      })
-  });
+  const loader = document.querySelector('.loader');
+  loader.style.display = 'inline-block'; // Mostra o loader
 
-  const responseData = await response.json();
-  return responseData[0].generated_text;
+  try {
+    const response = await fetch('https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer your_api_key' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
+        },
+        body: JSON.stringify({
+            inputs: inputText
+        })
+    });
+
+    const responseData = await response.json();
+
+    return responseData[0].generated_text;
+  } catch (error) {
+    console.error('Erro ao gerar resposta:', error);
+  } finally {
+    loader.style.display = 'none'; // Esconde o loader
+  }
 }
 
 function displayResponse(response) {

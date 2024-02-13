@@ -10,14 +10,21 @@
    
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body { 
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    background: linear-gradient(106deg, rgba(201,221,196,1) 0%, rgba(255,255,253,1) 20%, rgba(250,252,245,1) 31%, rgba(182, 193, 137, 1) 100%);
+    margin: 0;
 }
 
 section {
     height: 100vh;
     display: inline-block;
+    max-height: 100vh;
 }
 
 footer {
@@ -68,6 +75,11 @@ a { text-decoration: none; }
 .justify-around {
     justify-content: space-around;
 }
+
+.justify-end{
+    justify-content: end;
+}
+
 
 .half-width {
     width: 50%;
@@ -153,16 +165,23 @@ a { text-decoration: none; }
 
 .home {
     background: rgb(201,221,196);
-    background: linear-gradient(123deg, rgba(201,221,196,1) 0%, rgba(255,255,253,1) 20%, rgba(250,252,245,1) 31%, rgba(171,199,102,1) 100%);
+    background: linear-gradient(123deg, rgba(201,221,196,1) 0%, rgba(255,255,253,1) 20%, rgba(250,252,245,1) 31%, rgba(182, 193, 137, 1) 100%);
 }
 
 nav {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
-.team, .chat-section {
+.chat-section{
     background-color: #dbe89b;
     text-align: justify;
+}
+
+.team {
+    background: linear-gradient(56deg, rgba(201,221,196,1) 0%, rgba(255,255,253,1) 20%, rgba(250,252,245,1) 31%, rgba(182, 193, 137, 1) 100%);
+    text-align: justify;
+    overflow-x: clip;
+    max-height: 100vh;
 }
 
 .card { 
@@ -170,13 +189,18 @@ nav {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2em;
     padding: 0.5em;
+    box-shadow: rgba(150, 150, 150, 0.2) 0px 19px 38px, rgba(255, 255, 255, 0.11) 0px 15px 12px;
+    z-index: 10;
+
 }
 
 .card-text { 
-    margin-top: 2em; 
+    margin-top: 5em; 
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2em;
     padding: 2em;
+    box-shadow: rgba(150, 150, 150, 0.2) 0px 19px 38px, rgba(255, 255, 255, 0.11) 0px 15px 12px;
+    z-index: 10;
 }
 
 .card-text-fs {
@@ -201,7 +225,7 @@ nav {
 }
 
 .block {
-    background-image: url('./images/folhas.png');
+    /* background-image: url('../images/folhas.png'); */
     background-repeat: repeat-x;
     background-position-y: bottom;
     position: relative;
@@ -217,18 +241,17 @@ nav {
 
 .chat {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0;
 }
 
 .chat-log {
     align-self: center;
-    width: 50vw;
+    width: 100%;
     font-weight: normal;
-    max-height: 65vh;
-    overflow: hidden auto;
+    padding-right: 10px;
 }
 
 .chat-log .sent {
@@ -258,4 +281,187 @@ nav {
 
 .chat-input:focus {
     border-color: rgb(134, 153, 60);
+}
+
+.container-chat{
+    width: 50%;
+}
+
+.mr-1{
+    margin-right: 1em;
+}
+
+.mb-6{
+    margin-bottom: 6em;
+}
+
+.message:last-child {
+    scroll-margin-block: 100%; /* Garante que a última mensagem seja sempre visível */
+}
+
+.log-container{
+    max-height: 550px;
+    overflow: auto; 
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.loader {
+    margin-bottom: 10px;
+    align-self: center;
+    display: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 32px 0 #fff, -32px 0 #fff;
+    position: relative;
+    animation: flash 0.5s ease-out infinite alternate;
+}
+  
+@keyframes flash {
+    0% {
+      background-color: #FFF2;
+      box-shadow: 32px 0 #FFF2, -32px 0 #FFF;
+    }
+    50% {
+      background-color: #FFF;
+      box-shadow: 32px 0 #FFF2, -32px 0 #FFF2;
+    }
+    100% {
+      background-color: #FFF2;
+      box-shadow: 32px 0 #FFF, -32px 0 #FFF2;
+    }
+}
+        
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+    25% {
+        transform: rotate(10deg);
+        transform-origin: top center;
+    }
+    50% {
+        transform: rotate(-10deg);
+        transform-origin: top center;
+    }
+    75% {
+        transform: rotate(5deg);
+        transform-origin: top center;
+    }
+    100% {
+        transform: rotate(0deg);
+        transform-origin: top center;
+    }
+}
+
+.swing-animation {
+    animation: swing 15s ease-in-out infinite;
+}
+
+.luna{
+    position: absolute;
+    top: 50px;
+    left: 4.5em;
+}
+
+.leaves-gif{
+    position: absolute;
+    top: -200px;
+    left: -5.5em;
+    rotate: 100deg;
+}
+
+.leaf{
+    position: absolute;
+    top: -260px;
+    rotate: -90deg;
+    right: -300px;
+}
+
+.leaf-home{
+    position: absolute;
+    top: 100px;
+    rotate: -84deg;
+    left: -88px;
+    animation: sway 10s ease-in-out infinite alternate;
+    width: 28%;
+}
+
+.leaf-1{
+    position: absolute;
+    top: 20px;
+    rotate: -90deg;
+    left: -88px;
+    animation: sway 10s ease-in-out infinite alternate;
+}
+
+.leaf-2{
+    position: absolute;
+    rotate: -30deg;
+    left: -56px;
+    animation: sway 15s ease-in-out infinite alternate;
+    width: 50%;
+    bottom: 80px;
+}
+
+.leaf-3{
+    position: absolute;
+    rotate: -100deg;
+    animation: sway 15s ease-in-out infinite alternate;
+    width: 50%;
+    right: -25px;
+    top: -190px;
+}
+
+.leaf-home-1{
+    position: absolute;
+    rotate: 68deg;
+    animation: sway 30s ease-in-out infinite alternate;
+    width: 50%;
+    bottom: 430px;
+    left: -55px;
+}
+
+
+.leaf-animation{
+    animation: swing-leaf 40s ease-in-out infinite;
+}
+
+@keyframes swing-leaf {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: bottom center;
+    }
+    25% {
+        transform: rotate(10deg);
+        transform-origin: bottom center;
+    }
+    50% {
+        transform: rotate(-10deg);
+        transform-origin: bottom center;
+    }
+    75% {
+        transform: rotate(5deg);
+        transform-origin: bottom center;
+    }
+    100% {
+        transform: rotate(0deg);
+        transform-origin: bottom center;
+    }
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
