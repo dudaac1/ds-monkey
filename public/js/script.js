@@ -18,22 +18,27 @@ async function sendMessage() {
 async function generateResponse(inputText) {
   const loader = document.querySelector('.loader');
   loader.style.display = 'inline-block'; // Mostra o loader
+    const params = {
+        messages: [{ "role": "user", "content": inputText }],
+        do_sample: true,
+        max_tokens: 200,
+        temperature: 0.2,
+        top_p: 0.75,
+    };
 
   try {
-    const response = await fetch('https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill', {
+    const response = await fetch('https://chat.maritaca.ai/api/chat/inference', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer your_api_key' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
+            'Authorization': 'Key chave' // Substitua YOUR_API_KEY pelo seu próprio token de autenticação
         },
-        body: JSON.stringify({
-            inputs: inputText
-        })
+        body: JSON.stringify(params)
     });
 
     const responseData = await response.json();
 
-    return responseData[0].generated_text;
+    return responseData.answer;
   } catch (error) {
     console.error('Erro ao gerar resposta:', error);
   } finally {
