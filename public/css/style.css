@@ -173,7 +173,7 @@ nav {
 }
 
 .chat-section{
-    background-color: #dbe89b;
+    /* background-color: #dbe89b; */
     text-align: justify;
 }
 
@@ -359,7 +359,7 @@ nav {
 }
 
 .swing-animation {
-    animation: swing 15s ease-in-out infinite;
+    animation: swing 25s cubic-bezier(.45,.05,.55,.95) infinite;
 }
 
 .luna{
@@ -466,3 +466,11 @@ nav {
     }
 }
 
+
+
+.background-img{
+    /* background-image: url('../images/folha-fundo1.png');
+    background-image: no-repeat; */
+    background: rgb(134,153,60);
+    background: linear-gradient(270deg, rgba(134,153,60,0.5004202364539565) 0%, rgba(255,255,253,1) 33%, rgba(250,252,245,1) 69%, rgba(134,153,60,0.5116247182466737) 100%);
+}
